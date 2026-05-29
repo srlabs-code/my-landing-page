@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SR Labs 2048</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    h2 {
+        color: #444;
+        margin-top: 25px;
+    }
+
+    p {
+        color: #555;
+    }
+
+    ul {
+        margin-left: 20px;
+        color: #555;
+    }
+
+    footer {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+    }
+
+    .highlight {
+        color: #e67e22;
+        font-weight: bold;
+    }
+</style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Privacy Policy – SR Labs 2048</h1>
+
+    <p>
+        SR Labs 2048 ("we", "our", or "us") respects your privacy and is committed to protecting it.
+    </p>
+
+    <h2>Information We Collect</h2>
+    <p>
+        We do <span class="highlight">not collect personal information directly</span>.
+    </p>
+
+    <h2>Third-Party Services</h2>
+    <p>
+        This app uses <strong>Google AdMob</strong> to display ads. AdMob may collect:
+    </p>
+    <ul>
+        <li>Device identifiers</li>
+        <li>IP address</li>
+        <li>Usage data</li>
+    </ul>
+    <p>
+        This data is used to serve personalized and non-personalized ads.
+    </p>
+
+    <h2>Local Data Storage</h2>
+    <p>
+        Game data such as scores, coins, and progress is stored locally on your device.
+        We do not upload this data to any servers.
+    </p>
+
+    <h2>Children’s Privacy</h2>
+    <p>
+        This app is not directed to children under 13.
+    </p>
+
+    <h2>Security</h2>
+    <p>
+        We value your trust and strive to protect your data using reasonable safeguards.
+    </p>
+
+    <h2>Changes to This Policy</h2>
+    <p>
+        We may update this Privacy Policy from time to time. Changes will be reflected on this page.
+    </p>
+
+    <h2>Contact Us</h2>
+    <p>
+        If you have any questions, contact us at:
+        <strong>srlabs.app@gmail.com</strong>
+    </p>
+
+    <footer>
+        © 2026 SR Labs. All rights reserved.
+    </footer>
+</div>
+
+</body>
+</html>
