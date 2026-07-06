@@ -1,1 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy Policy for Swift PDF — an on-device document scanner and PDF toolkit. Your documents never leave your device.">
+<meta name="robots" content="index, follow">
+<title>Privacy Policy — Swift PDF</title>
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #1c1c1e;
+    --text-soft: #55565c;
+    --text-faint: #8a8b92;
+    --accent: #0a84ff;
+    --accent-2: #30b457;
+    --border: #e4e5ea;
+    --callout-bg: #eefaf1;
+    --callout-border: #bfe8cb;
+    --table-head: #f0f1f5;
+    --table-stripe: #fafafc;
+    --code-bg: #eff0f4;
+    --shadow: 0 1px 2px rgba(20, 22, 30, .05), 0 8px 28px rgba(20, 22, 30, .07);
+  }
 
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0e11;
+      --surface: #17181c;
+      --text: #f2f2f5;
+      --text-soft: #b9bac2;
+      --text-faint: #7d7e87;
+      --accent: #4da3ff;
+      --accent-2: #46cf6f;
+      --border: #2a2b31;
+      --callout-bg: #14231a;
+      --callout-border: #235032;
+      --table-head: #1e1f25;
+      --table-stripe: #1b1c21;
+      --code-bg: #24252b;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 10px 32px rgba(0, 0, 0, .45);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    color: #fff;
+    padding: 56px 24px 72px;
+    text-align: center;
+  }
+  .hero .app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .28);
+    backdrop-filter: blur(6px);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .4px;
+    margin-bottom: 22px;
+  }
+  .hero .app-badge .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255,255,255,.25);
+  }
+  .hero h1 {
+    font-size: clamp(30px, 5.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 17px;
+    opacity: .92;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .hero .meta {
+    margin-top: 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    opacity: .85;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- Layout ---------- */
+  .page {
+    max-width: 780px;
+    margin: -40px auto 0;
+    padding: 0 20px 80px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: clamp(24px, 5vw, 48px);
+  }
+
+  /* ---------- TL;DR callout ---------- */
+  .tldr {
+    background: var(--callout-bg);
+    border: 1px solid var(--callout-border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 36px;
+  }
+  .tldr h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-2);
+    margin-bottom: 12px;
+  }
+  .tldr ul { list-style: none; }
+  .tldr li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .tldr li:last-child { margin-bottom: 0; }
+  .tldr li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  /* ---------- TOC ---------- */
+  .toc {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 26px;
+    margin-bottom: 40px;
+    background: var(--table-stripe);
+  }
+  .toc h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+  }
+  .toc ol {
+    columns: 2;
+    column-gap: 32px;
+    padding-left: 20px;
+    font-size: 14.5px;
+  }
+  .toc li { margin-bottom: 6px; break-inside: avoid; }
+  .toc a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .toc a:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .toc ol { columns: 1; } }
+
+  /* ---------- Sections ---------- */
+  section { margin-bottom: 42px; scroll-margin-top: 24px; }
+  section:last-of-type { margin-bottom: 0; }
+
+  h2.sec {
+    font-size: 22px;
+    font-weight: 750;
+    letter-spacing: -.015em;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  h2.sec .num {
+    color: var(--accent);
+    font-size: 15px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+  }
+
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 22px 0 8px;
+  }
+
+  p { margin-bottom: 14px; color: var(--text-soft); }
+  p strong, li strong { color: var(--text); }
+  section > p:last-child { margin-bottom: 0; }
+
+  ul.list, ol.list {
+    margin: 0 0 16px;
+    padding-left: 24px;
+    color: var(--text-soft);
+  }
+  ul.list li, ol.list li { margin-bottom: 8px; }
+
+  a { color: var(--accent); }
+  a:hover { text-decoration-thickness: 2px; }
+
+  .highlight {
+    background: var(--callout-bg);
+    border-left: 4px solid var(--accent-2);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 16px 0;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  code {
+    background: var(--code-bg);
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+    font-size: .85em;
+    color: var(--text);
+  }
+
+  /* ---------- Table ---------- */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin: 16px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    min-width: 480px;
+  }
+  th {
+    background: var(--table-head);
+    text-align: left;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--text-faint);
+    padding: 12px 18px;
+  }
+  td {
+    padding: 13px 18px;
+    border-top: 1px solid var(--border);
+    color: var(--text-soft);
+    vertical-align: top;
+  }
+  td:first-child {
+    font-weight: 650;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  tbody tr:nth-child(even) { background: var(--table-stripe); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 13.5px;
+  }
+  footer a { color: var(--text-soft); font-weight: 600; }
+
+  .contact-box {
+    margin-top: 32px;
+    text-align: center;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), color-mix(in srgb, var(--accent-2) 8%, var(--surface)));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+  .contact-box h2 { font-size: 19px; margin-bottom: 6px; }
+  .contact-box p { margin-bottom: 14px; }
+  .contact-box .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .contact-box .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  /* ---------- Print ---------- */
+  @media print {
+    body { background: #fff; font-size: 12px; }
+    .hero { background: none; color: #000; padding: 0 0 16px; text-align: left; }
+    .hero .app-badge, .toc, .contact-box .btn { display: none; }
+    .page { margin: 0; padding: 0; max-width: none; }
+    .card { border: none; box-shadow: none; padding: 0; }
+    a { color: #000; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="app-badge"><span class="dot"></span>SWIFT PDF</div>
+  <h1>Privacy Policy</h1>
+  <p>A document scanner and PDF toolkit that processes everything on your device. Your documents never leave your phone.</p>
+  <div class="meta">Effective: July 6, 2026 &nbsp;·&nbsp; Developer: SR Labs</div>
+</header>
+
+<main class="page">
+  <div class="card">
+
+    <div class="tldr">
+      <h2>The short version</h2>
+      <ul>
+        <li><strong>Your documents stay on your device.</strong> Scanning, OCR, and all PDF processing run locally — we have no servers and never see your files.</li>
+        <li><strong>Your original files are never deleted or modified.</strong> Every tool creates a new output file.</li>
+        <li><strong>We collect no personal information ourselves.</strong> Only Google's ads and analytics SDKs receive standard, pseudonymous device data — never your content.</li>
+        <li><strong>No account required.</strong> No sign-up, no email, no contacts, no location.</li>
+      </ul>
+    </div>
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#on-device">Your documents stay on your device</a></li>
+        <li><a href="#files">Your files — access, storage &amp; deletion</a></li>
+        <li><a href="#permissions">Permissions the app requests</a></li>
+        <li><a href="#model">On-device AI model download</a></li>
+        <li><a href="#third-party">Third-party services</a></li>
+        <li><a href="#not-collected">Data we do NOT collect</a></li>
+        <li><a href="#retention">Data retention &amp; your choices</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#international">International users</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <p>Swift PDF (package <code>com.srlabs.swiftpdfpro</code>) is a document scanner and PDF toolkit published by SR Labs (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) on Google Play. This policy explains what information the app handles, what stays on your device, and what is shared with third-party services.</p>
+
+    <section id="on-device">
+      <h2 class="sec"><span class="num">1</span>Your documents stay on your device</h2>
+      <p>All core features of Swift PDF run <strong>entirely on your device</strong>:</p>
+      <ul class="list">
+        <li><strong>Scanning and image processing</strong> (edge detection, cropping, filters, page flattening) is performed locally using on-device computer-vision and machine-learning models.</li>
+        <li><strong>Text recognition (OCR)</strong> and <strong>barcode/QR scanning</strong> are performed locally using Google&nbsp;ML&nbsp;Kit's on-device APIs. Your images are <strong>not</strong> sent to a server for recognition.</li>
+        <li><strong>PDF creation, merging, splitting, compression, and viewing</strong> are performed locally.</li>
+      </ul>
+      <div class="highlight">We do not upload, store, view, or have any access to your scanned images, photos, PDFs, extracted text, or barcode contents. We do not operate a backend server for document processing.</div>
+    </section>
+
+    <section id="files">
+      <h2 class="sec"><span class="num">2</span>Your files — access, storage &amp; deletion</h2>
+      <ul class="list">
+        <li>The app only reads files <strong>you explicitly select</strong> through the Android system file picker or share sheet, and images <strong>you capture</strong> with the camera inside the app.</li>
+        <li>Output files (PDFs, images) are saved to the folder <strong>you choose</strong>, or to your device's Downloads folder by default.</li>
+        <li><strong>The app never deletes or modifies your original files.</strong> Creating a compressed, merged, split, or scanned output always produces a <strong>new file</strong>; source files are left untouched.</li>
+        <li>A &ldquo;Recent files&rdquo; list (file names and locations only) is stored locally on your device so you can quickly reopen documents. You can clear it at any time from the Home screen.</li>
+        <li>Temporary working files created during scanning are stored in the app's private cache and are automatically cleaned up. Uninstalling the app removes all app-private data.</li>
+      </ul>
+    </section>
+
+    <section id="permissions">
+      <h2 class="sec"><span class="num">3</span>Permissions the app requests</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Permission</th><th>Why it is needed</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Camera</td>
+              <td>To scan documents, ID cards, books, photos, and QR/barcodes. Used only while you are on the scanning screen.</td>
+            </tr>
+            <tr>
+              <td>Internet</td>
+              <td>To serve ads, fetch remote configuration, download an optional on-device AI model, and collect anonymous analytics (see below). Not used to transmit your documents.</td>
+            </tr>
+            <tr>
+              <td>Vibrate</td>
+              <td>Haptic feedback (e.g., when a document is detected).</td>
+            </tr>
+            <tr>
+              <td>Read storage</td>
+              <td>Android 12 and below only — to open files you select on older Android versions. On Android 13+ the system file picker is used and no storage permission is requested.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The app does <strong>not</strong> request access to your contacts, location, microphone, SMS, call logs, or any background data access.</p>
+    </section>
+
+    <section id="model">
+      <h2 class="sec"><span class="num">4</span>On-device AI model download</h2>
+      <p>Some scanning enhancements (book-page flattening) use an on-device AI model. If the model was not bundled with your app install, the app downloads it once over the internet (from Google Play's asset delivery or a public model repository). This is a plain file download; no personal data or document content is transmitted, though the download request necessarily exposes your IP address to the hosting server, as with any internet download.</p>
+    </section>
+
+    <section id="third-party">
+      <h2 class="sec"><span class="num">5</span>Third-party services</h2>
+      <p>The app integrates the following Google services. These services may collect certain device information as described in their own privacy policies:</p>
+
+      <h3>Google AdMob (advertising)</h3>
+      <p>We show optional rewarded ads (for example, to unlock a premium feature once). AdMob may collect and use:</p>
+      <ul class="list">
+        <li>Advertising ID (a resettable identifier)</li>
+        <li>IP address and coarse, IP-derived location</li>
+        <li>Device information (model, OS version, screen size)</li>
+        <li>Ad interaction data (views, clicks)</li>
+      </ul>
+      <p>Learn more: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. You can reset or delete your Advertising ID and opt out of ads personalization in <strong>Android Settings → Google → Ads</strong>. Where required by law (e.g., EEA/UK), you will be asked for consent before personalized ads are shown.</p>
+
+      <h3>Google Firebase (Analytics &amp; Remote Config)</h3>
+      <p>We use Firebase Analytics to understand aggregate, anonymous usage (e.g., which tools are used most, crash-free rate, device types) so we can improve the app, and Firebase Remote Config to adjust app settings (such as whether a discount offer is active) without an update. Firebase may collect:</p>
+      <ul class="list">
+        <li>A pseudonymous app-instance identifier</li>
+        <li>Device and OS information</li>
+        <li>Coarse usage events (screen views, feature usage counts)</li>
+      </ul>
+      <p>Learn more: <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</p>
+      <div class="highlight">Analytics never includes the content of your documents, file names, extracted text, or images.</div>
+
+      <h3>Google Play services / ML Kit</h3>
+      <p>On-device text recognition and barcode scanning are provided by ML Kit. Recognition runs locally; ML Kit may contact Google servers only to download or update its on-device models and to report diagnostic information about the SDK itself. Learn more: <a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener">ML Kit terms</a>.</p>
+      <p>We do <strong>not</strong> use any other third-party SDKs, data brokers, or tracking networks.</p>
+    </section>
+
+    <section id="not-collected">
+      <h2 class="sec"><span class="num">6</span>Data we do NOT collect</h2>
+      <p>We do not collect, store, or share:</p>
+      <ul class="list">
+        <li>Your documents, scans, photos, or PDFs</li>
+        <li>OCR-extracted text or barcode/QR contents</li>
+        <li>File names or file contents</li>
+        <li>Your name, email address, phone number, or contacts</li>
+        <li>Your precise location</li>
+        <li>Any special-category (sensitive) personal data</li>
+      </ul>
+      <p>Because we do not collect your documents, we cannot recover them for you — please keep your own backups of important files.</p>
+    </section>
+
+    <section id="retention">
+      <h2 class="sec"><span class="num">7</span>Data retention &amp; your choices</h2>
+      <ul class="list">
+        <li><strong>On-device data</strong> (settings, recent-files list, cached scans): remains on your device until you clear it in the app, clear the app's storage in Android Settings, or uninstall the app.</li>
+        <li><strong>Analytics data</strong> (Firebase): retained by Google per Firebase's standard retention controls (up to 14 months for user-level data), in aggregate/pseudonymous form.</li>
+        <li><strong>Advertising data</strong> (AdMob): governed by Google's policies; you may reset your Advertising ID at any time.</li>
+        <li>You may contact us at the email below with any privacy request (access, deletion of analytics identifiers, questions). For data processed by Google (AdMob/Firebase), we will direct the request to the appropriate Google mechanism.</li>
+      </ul>
+    </section>
+
+    <section id="security">
+      <h2 class="sec"><span class="num">8</span>Security</h2>
+      <p>Your documents are processed in the app's private, sandboxed storage, which other apps cannot access. Files you export are placed where you choose and are protected by your device's own security (screen lock, encryption). Network connections made by the app use HTTPS.</p>
+    </section>
+
+    <section id="children">
+      <h2 class="sec"><span class="num">9</span>Children's privacy</h2>
+      <p>Swift PDF is not directed at children under 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect personal information from children. Ads are served through Google AdMob in accordance with Google Play's Families and ads policies. If you believe a child has provided personal information through the app, contact us and we will address it.</p>
+    </section>
+
+    <section id="international">
+      <h2 class="sec"><span class="num">10</span>International users (GDPR / UK GDPR / CCPA)</h2>
+      <ul class="list">
+        <li><strong>Legal bases (EEA/UK):</strong> ads and analytics rely on your <strong>consent</strong> where required; core on-device functionality involves no processing of personal data by us.</li>
+        <li><strong>Your rights:</strong> depending on your region, you may have rights to access, correct, delete, or object to processing of personal data. Because we hold no personal data on our own servers, these rights primarily apply to data held by Google (see the links in Section 5); we will assist with any request sent to our contact email.</li>
+        <li><strong>CCPA (California):</strong> we do not sell your personal information. Advertising-related data sharing with Google may qualify as &ldquo;sharing&rdquo; for cross-context behavioral advertising under the CPRA; you can opt out of personalized ads via your device's Ads settings and, where shown, the in-app consent options.</li>
+      </ul>
+    </section>
+
+    <section id="changes">
+      <h2 class="sec"><span class="num">11</span>Changes to this policy</h2>
+      <p>We may update this policy as the app evolves (for example, if we add purchases or cloud features). Material changes will be reflected by a new effective date at the top of this page, and significant changes will be highlighted in the app or its store listing.</p>
+    </section>
+
+    <section id="contact">
+      <h2 class="sec"><span class="num">12</span>Contact</h2>
+      <p>Questions or requests about this policy or your privacy:</p>
+      <div class="contact-box">
+        <h2>We're happy to help</h2>
+        <p>Reach out any time — privacy questions, data requests, or feedback.</p>
+        <a class="btn" href="mailto:sairavitejachintakrindi@gmail.com">Email&nbsp;Us</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 SR Labs · Swift PDF ·
+  <a href="mailto:sairavitejachintakrindi@gmail.com">sairavitejachintakrindi@gmail.com</a><br>
+  Effective July 6, 2026
+</footer>
+
+</body>
+</html>
